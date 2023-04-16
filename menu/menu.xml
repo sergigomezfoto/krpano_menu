@@ -1,0 +1,192 @@
+<krpano>
+
+<style name="menu_container"
+    type="container"
+    align="left"
+    flowchildren="v"
+    x="20"
+childflowspacing="5"
+capture="false"
+/>
+
+    <style name="menu_block_title"
+        type="text"     
+        textalign="lefttop"
+        padding="30 0 0 10"
+        align="bottom"
+        flowchildren="v" 
+        childmargin="80 0 0 0"
+        maskchildren="true"
+        height="80"
+        css="color:#ffffff;font-size:18px;"
+        onclick="click_block_title"
+        bgcolor="0x3f2e52"
+        alpha="0.65"
+        capture="false"
+    />
+        <action name="click_block_title" scope="local">
+            subtxt(actualnum, caller.name, -1, 1);
+            forall(layer, l,     
+                if (contains(l.name,'menu_block_title') AND !contains(l.name,actualnum),                 
+                    if (layer[get(l.name)].height GT 80,
+                        tween(layer[get(l.name)].height,80);
+                        tween(layer[get(l.name)].alpha,0.65)
+                    );               
+                 );
+            );
+            if (caller.height == 80,
+                tween(caller.height,280);             
+                tween(caller.alpha,1);
+            );   
+               
+        </action>
+        <style name="menu_block_content"
+            type="container"  
+            align="top" 
+            width="380" 
+            height="200" 
+            bgcolor="0x3f2e52"
+            capture="false"
+        />
+        <style name="deg_menu"
+            type="text"
+            width="100%"
+            height="14"
+            flow="false"
+            y="0"
+            cssclass="deg"
+            zorder="20000"
+            capture="false"
+        />
+        
+        <cssstyles><![CDATA[
+            .deg{
+             background-image: linear-gradient(to bottom,#3f2e52 ,rgba(255,0,0,0));
+            }
+        ]]></cssstyles>
+           <!--  background-image: linear-gradient(to bottom, #3f2e52 ,rgba(255,0,0,0)); -->
+            <style name="menu_scrollarea_interior"
+                type="scrollarea"
+                width="-4" 
+                flowchildren="v" 
+                childmargin="10"
+                scrolltype.desktop="smooth"
+                scrolltype.tablet.or.mobile="inertia"
+                direction="v"
+                draggable="true"
+                mwheel="true"
+                capturechildren="true"         
+                onhover_autoscrolling="false"
+                onscroll=""
+                onoverflowchange=""
+                capture="false"
+            />
+            <style name="menus_scrollarea_interior_1"
+                autoscrollbars="null,vscrollbar_grip,10"
+            />
+            <style name="menus_scrollarea_interior_2"
+                autoscrollbars="null,vscrollbar_grip2,10"
+            />
+            <style name="menus_scrollarea_interior_3"
+                autoscrollbars="null,vscrollbar_grip3,10"
+            />
+                                                    <style name="menu_scroll_bar_bg"
+                                                        type="container" 
+                                                        align="right" 
+                                                        width="16" 
+                                                        height="100%"
+                                                        capture="false"
+                                                    />
+                                                    <style name="menu_scroll_bar_thumb"
+                                                        type="container" 
+                                                        align="righttop" 
+                                                        width="8" 
+                                                        x="4" 
+                                                        height="2" 
+                                                        bgcolor="0xAAAAAA" 
+                                                        bgalpha="0.5" 
+                                                        bgroundedge="7" 
+                                                        bgcapture="true"
+                                                        capture="false"
+                                                    />
+                <style name="menu_item"
+                    type="text" 
+                    align="lefttop" 
+                    textalign="left"
+                    htmlautosize="true"
+                    width="100%" 
+                    bgalpha="0.0" 
+                    css="color:#ffffff; font-size:14px;"
+                    onclick="trace(name)"
+                    capture="false"
+                />
+<layer name="menu_container" keep="true" style="menu_container">
+    
+    <layer name="menu_block_title1" keep="true" style="menu_block_title" bgroundedge="20 20 0 0"  text="ESPAIS GENERALS">
+        <layer name="menu_block_content1" style="menu_block_content" >
+        <layer name="deg11" style="deg_menu"/>
+            <layer name="menu_scrollarea1" style="menu_scrollarea_interior|menus_scrollarea_interior_1" >
+                <layer name="menu_1item1" html="hola" style="menu_item" />
+                <layer name="menu_1item2" html="adeu" style="menu_item"  />
+                <layer name="menu_1item3" html="fins ara" style="menu_item"  />
+                <layer name="menu_1item4" html="fins després" style="menu_item"  />
+                <layer name="menu_1item5" html="fins aviat" style="menu_item"  />
+                <layer name="menu_1item6" html="que vagi bé" style="menu_item"  />
+                <layer name="menu_1item7" html="au vés" style="menu_item"  />
+                <layer name="menu_1item8" html="hola" style="menu_item" />
+                <layer name="menu_1item9" html="adeu" style="menu_item"  />
+                <layer name="menu_1item10" html="fins ara" style="menu_item"  />
+                <layer name="menu_1item11" html="fins després" style="menu_item"  />
+                <layer name="menu_1item12" html="fins aviat" style="menu_item"  />
+                <layer name="menu_1item13" html="que vagi bé" style="menu_item"  />
+                <layer name="menu_1item14" html="au vés" style="menu_item"  />
+            </layer>
+            <layer name="deg11" style="deg_menu"/>
+                            <layer name="vscrollbar_bg" style="menu_scroll_bar_bg" >
+                                <layer name="vscrollbar_grip" style="menu_scroll_bar_thumb" />
+                            </layer>
+        <layer name="deg12" style="deg_menu" align="bottom" rotate="180" y="14"/>
+        </layer>
+    </layer>
+
+
+    <layer name="menu_block_title2" keep="true" style="menu_block_title"  text="TIPUS HABITACIONS">
+        <layer name="menu_block_content2" style="menu_block_content" >
+            <layer name="menu_scrollarea2" style="menu_scrollarea_interior|menus_scrollarea_interior_2" >
+                <layer name="menu_2item1" html="hola" style="menu_item" />
+                <layer name="menu_2item2" html="adeu" style="menu_item"  />
+                <layer name="menu_2item3" html="fins ara" style="menu_item"  />
+                <layer name="menu_2item4" html="fins després" style="menu_item"  />
+                <layer name="menu_2item5" html="fins aviat" style="menu_item"  />
+                <layer name="menu_2item6" html="que vagi bé" style="menu_item"  />
+                <layer name="menu_2item7" html="au vés" style="menu_item"  />
+                <layer name="menu_2item8" html="hola" style="menu_item" />
+                <layer name="menu_2item9" html="adeu" style="menu_item"  />
+                
+            </layer>
+                            <layer name="vscrollbar_bg2" style="menu_scroll_bar_bg" >
+                                <layer name="vscrollbar_grip2" style="menu_scroll_bar_thumb" />
+                            </layer>
+        </layer>
+    </layer>
+
+    <layer name="menu_block_title3" keep="true" style="menu_block_title" bgroundedge="0 0 20 20" text="EXTERIORS">
+        <layer name="menu_block_content3" style="menu_block_content" >
+            <layer name="menu_scrollarea3" style="menu_scrollarea_interior|menus_scrollarea_interior_3" >
+                <layer name="menu_3item1" html="hola" style="menu_item" />
+                <layer name="menu_3item2" html="adeu" style="menu_item"  />
+                <layer name="menu_3item3" html="fins ara" style="menu_item"  />
+                <layer name="menu_3item4" html="fins després" style="menu_item"  />
+                <layer name="menu_3item5" html="fins aviat" style="menu_item"  />
+                <layer name="menu_3item6" html="que vagi bé" style="menu_item"  />
+
+                
+            </layer>
+                            <layer name="vscrollbar_bg3" style="menu_scroll_bar_bg" >
+                                <layer name="vscrollbar_grip3" style="menu_scroll_bar_thumb" />
+                            </layer>
+        </layer>
+    </layer>
+
+</layer>
+</krpano>
